@@ -9,7 +9,7 @@ package com.cfox.netstatus.netutils;
  * <br/>************************************************
  */
 
-public interface NetReceiver {
+public interface NetStatusReceiver {
 
     public void netStatusChanged(NetType netType);
 }

@@ -13,5 +13,13 @@ import java.util.List;
  */
 
 public class NetObserver {
-    private static List<NetReceiver> netReceivers = new ArrayList<>();
+    private static List<NetStatusReceiver> sNetStatusReceivers = new ArrayList<>();
+
+    public static void register(NetStatusReceiver netStatusReceiver){
+        sNetStatusReceivers.add(netStatusReceiver);
+    }
+
+    public static List<NetStatusReceiver> getNetStatusReceivers(){
+        return sNetStatusReceivers;
+    }
 }

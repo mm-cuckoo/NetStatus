@@ -32,6 +32,9 @@ public class NetTools {
      * @param context
      */
     public static void init(Context context){
+
+        if (sCtx != null) return;
+
         if (context instanceof Activity){
             sCtx = ((Activity) context).getApplication();
             return;
@@ -41,7 +44,7 @@ public class NetTools {
             sCtx = ((Service) context).getApplication();
             return;
         }
-        sCtx = context;
+        sCtx = context.getApplicationContext();
     }
 
     /**
