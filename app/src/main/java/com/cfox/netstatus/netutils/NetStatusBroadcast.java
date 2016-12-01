@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import java.util.List;
-
 /**
  * <br/>************************************************
  * <br/>PROJECT_NAME : NetStatus
@@ -24,14 +22,17 @@ public class NetStatusBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         NetTools.init(context);
-        Log.i(TAG,"sign");
+        Log.i(TAG,"Cache Net :" + sNetTypeCache );
         if (NetTools.netType() == sNetTypeCache) return;
-        Log.i(TAG,"is net Changed");
+        Log.i(TAG,"Changed net :" + NetTools.netType());
         if (intent.getAction().equals(NET_CHANGE_ACTION)){
-            List<NetStatusReceiver> netStatusReceiverList = NetObserver.getNetStatusReceivers();
-            for (NetStatusReceiver netStatusReceiver : netStatusReceiverList) {
-                netStatusReceiver.netStatusChanged(sNetTypeCache = NetTools.netType());
-            }
+            sNetTypeCache = NetTools.netType();
+
+            NetStatusReceiver receiver = NetObserver.getGlobalReceiver();
+            if (receiver != null) receiver.netStatusChanged(sNetTypeCache);
+
+            receiver = NetObserver.getNetStatusReceiver();
+            if (receiver != null) receiver.netStatusChanged(sNetTypeCache);
         }
     }
 }

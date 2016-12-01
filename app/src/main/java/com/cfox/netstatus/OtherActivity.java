@@ -1,7 +1,6 @@
 package com.cfox.netstatus;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -10,12 +9,21 @@ import com.cfox.netstatus.netutils.NetObserver;
 import com.cfox.netstatus.netutils.NetStatusReceiver;
 import com.cfox.netstatus.netutils.NetType;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * <br/>************************************************
+ * <br/>PROJECT_NAME : NetStatus
+ * <br/>PACKAGE_NAME : com.cfox.netstatus
+ * <br/>AUTHOR : CFOX
+ * <br/>MSG :
+ * <br/>************************************************
+ */
+
+public class OtherActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_other);
 
 
     }
@@ -23,17 +31,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         NetObserver.register(new NetStatusReceiver() {
             @Override
             public void netStatusChanged(NetType netType) {
-                Toast.makeText(MainActivity.this,"main page net type" + netType ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(OtherActivity.this,"OtherActivity page net type" + netType ,Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void openOtherActivity(View view) {
-        Intent intent = new Intent(this,OtherActivity.class);
-        startActivity(intent);
+    public void exitActivity(View view) {
+        finish();
     }
 }

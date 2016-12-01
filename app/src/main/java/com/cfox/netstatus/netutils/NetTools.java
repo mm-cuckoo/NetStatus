@@ -63,7 +63,7 @@ public class NetTools {
      */
     public static boolean isConnected(Context context){
         if (context == null){
-            new RuntimeException(NetTools.class.getSimpleName() + " # Content  is null");
+            throw new RuntimeException(NetTools.class.getSimpleName() + " # Content  is null");
         }
         init(context);
         ConnectivityManager connectivityManager = getConnectivityMannager(sCtx);
@@ -96,7 +96,7 @@ public class NetTools {
     public static NetType netType(Context context){
 
         if (context == null){
-            new RuntimeException(NetTools.class.getSimpleName() + " # Content  is null");
+            throw new RuntimeException(NetTools.class.getSimpleName() + " # Content  is null");
         }
 
         init(context);
