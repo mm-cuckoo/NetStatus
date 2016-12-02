@@ -22,11 +22,9 @@ public class App extends Application {
 
     public static NetType sNetType;//设置全局网络变量
 
-    @Override
     public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
-
         NetObserver.registerlGlobalReceiver(new NetStatusReceiver() {
             @Override
             public void netStatusChanged(NetType netType) {
@@ -34,6 +32,5 @@ public class App extends Application {
                 sNetType = netType;
             }
         });
-
     }
 }
