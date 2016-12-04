@@ -21,9 +21,15 @@ import com.cfox.netstatus.netutils.NetType;
 
 public class OtherActivity extends Activity {
 
-    private String name = "aaaa";
-
     private Button mBtnFinsh;
+
+    private NetStatusReceiver receiver = new NetStatusReceiver() {
+        @Override
+        public void netStatusChanged(NetType netType) {
+            Toast.makeText(OtherActivity.this, "OtherActivity page net type" + netType ,Toast.LENGTH_SHORT).show();
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +41,7 @@ public class OtherActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        NetObserver.register(new NetStatusReceiver() {
-            @Override
-            public void netStatusChanged(NetType netType) {
-                Toast.makeText(OtherActivity.this,name + "OtherActivity page net type" + netType ,Toast.LENGTH_SHORT).show();
-            }
-        });
+        NetObserver.register(receiver);
     }
 
     @Override
