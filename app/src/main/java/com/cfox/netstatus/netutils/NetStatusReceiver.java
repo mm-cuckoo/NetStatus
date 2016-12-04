@@ -11,5 +11,5 @@ package com.cfox.netstatus.netutils;
 
 public interface NetStatusReceiver {
 
-    public void netStatusChanged(NetType netType);
+    void netStatusChanged(NetType netType);
 }

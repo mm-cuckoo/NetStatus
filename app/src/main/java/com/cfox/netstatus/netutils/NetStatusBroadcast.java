@@ -16,7 +16,7 @@ import android.util.Log;
 
 public class NetStatusBroadcast extends BroadcastReceiver {
     private static final String TAG = "NetStatusBroadcast";
-    private static String NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
+    public  static  final String NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
     /** 有些时候网络改变时会调用两次,使用这个变了记录上一次改变时的网络状态,如果和上一次相同,则不向下通知 */
     private static NetType sNetTypeCache = null;
     @Override

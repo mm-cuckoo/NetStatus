@@ -31,11 +31,25 @@ public class NetObserver {
     }
 
     /**
+     * 取消注册的全局回调
+     */
+    public static void unGlobalRegister(){
+        sGlobalReceiver = null;
+    }
+
+    /**
      * 注册回调
      * @param netStatusReceiver
      */
     public static synchronized void register(NetStatusReceiver netStatusReceiver){
         sNetStatusReceiver = netStatusReceiver;
+    }
+
+    /**
+     * 取消
+     */
+    public static void unregister(){
+        sNetStatusReceiver = null;
     }
 
     public static NetStatusReceiver  getNetStatusReceiver(){
