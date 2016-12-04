@@ -24,18 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-//        NetObserver.register(new NetStatusReceiver() {
-//            @Override
-//            public void netStatusChanged(NetType netType) {
-//                Toast.makeText(MainActivity.this,"main page net type" + netType ,Toast.LENGTH_SHORT).show();
-//            }
-//        });
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mBroadcast);
