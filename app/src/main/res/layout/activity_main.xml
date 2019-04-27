@@ -4,10 +4,12 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.cfox.netstatus.MainActivity">
 
     <Button
-        android:onClick="openOtherActivity"
+        android:text="unregisterReceiver"
+        android:onClick="unregisterReceiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

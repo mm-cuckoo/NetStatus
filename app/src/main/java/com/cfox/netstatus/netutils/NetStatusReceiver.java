@@ -1,15 +1,24 @@
 package com.cfox.netstatus.netutils;
 
-/**
- * <br/>************************************************
- * <br/>PROJECT_NAME : NetStatus
- * <br/>PACKAGE_NAME : com.cfox.netstatus.netutils
- * <br/>AUTHOR : CFOX
- * <br/>MSG :
- * <br/>************************************************
- */
+public abstract class NetStatusReceiver {
+    private static int sFlag = 0;
+    private int mObjFlag = getFlag();
+    protected abstract void netStatusChanged(NetType netType);
 
-public interface NetStatusReceiver {
+    public boolean onFilter(NetType netType) {
+        return true;
+    }
 
-    void netStatusChanged(NetType netType);
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof NetStatusReceiver)) {
+            return false;
+        }
+        NetStatusReceiver receiver = (NetStatusReceiver) obj;
+        return this.mObjFlag == receiver.mObjFlag;
+    }
+
+    private synchronized static int getFlag() {
+        return ++sFlag;
+    }
 }

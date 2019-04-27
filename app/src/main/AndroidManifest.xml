@@ -16,14 +16,12 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".OtherActivity"/>
-
-        <!--<receiver android:name=".netutils.NetStatusBroadcast">-->
+        <!--<receiver android:name=".netutils.NetworkBroadcast">-->
             <!--<intent-filter>-->
                 <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE"-->
                     <!--tools:ignore="BatteryLife" />-->
