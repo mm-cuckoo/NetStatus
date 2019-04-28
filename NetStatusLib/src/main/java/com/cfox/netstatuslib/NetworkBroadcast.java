@@ -1,4 +1,4 @@
-package com.cfox.netstatus.netutils;
+package com.cfox.netstatuslib;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

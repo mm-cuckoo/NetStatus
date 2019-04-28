@@ -1,4 +1,4 @@
-package com.cfox.netstatus.netutils;
+package com.cfox.netstatuslib;
 
 public class NetTypeObservable {
     private final static int DEFAULT_PRIORITY = 0;
@@ -6,8 +6,12 @@ public class NetTypeObservable {
     private NetTypeMessage mHead;
     private NetworkListener mListener;
 
-    public void setNetworkListener(NetworkListener listener) {
-        this.mListener = listener;
+    public void setListener(NetworkListener mListener) {
+        this.mListener = mListener;
+    }
+
+    public static void setNetworkListener(NetworkListener listener) {
+        NetTypeObservable.getInstance().setListener(listener);
     }
 
     private NetTypeObservable() {

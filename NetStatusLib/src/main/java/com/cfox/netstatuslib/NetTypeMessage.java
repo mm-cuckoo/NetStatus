@@ -1,4 +1,4 @@
-package com.cfox.netstatus.netutils;
+package com.cfox.netstatuslib;
 
 class NetTypeMessage {
     private int mPriority;

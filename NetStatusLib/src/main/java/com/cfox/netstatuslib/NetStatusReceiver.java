@@ -1,4 +1,4 @@
-package com.cfox.netstatus.netutils;
+package com.cfox.netstatuslib;
 
 public abstract class NetStatusReceiver {
     private static int sFlag = 0;

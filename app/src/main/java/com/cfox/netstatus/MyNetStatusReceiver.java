@@ -1,6 +1,7 @@
 package com.cfox.netstatus;
 
-import com.cfox.netstatus.netutils.NetStatusReceiver;
+
+import com.cfox.netstatuslib.NetStatusReceiver;
 
 public abstract class MyNetStatusReceiver extends NetStatusReceiver {
     private int priority;

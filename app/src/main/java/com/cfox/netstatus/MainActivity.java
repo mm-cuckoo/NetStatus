@@ -1,14 +1,12 @@
 package com.cfox.netstatus;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.cfox.netstatus.netutils.NetWorkStatus;
-import com.cfox.netstatus.netutils.NetStatusReceiver;
-import com.cfox.netstatus.netutils.NetType;
-import com.cfox.netstatus.netutils.NetTypeObservable;
+import com.cfox.netstatuslib.NetStatusReceiver;
+import com.cfox.netstatuslib.NetType;
+import com.cfox.netstatuslib.NetTypeObservable;
 
 
 public class MainActivity extends BaseActivity {
@@ -21,12 +19,6 @@ public class MainActivity extends BaseActivity {
         NetTypeObservable.register(receiver1);
         NetTypeObservable.register(receiver2, 20);
         NetTypeObservable.register(receiver3);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        NetWorkStatus.unregister();
     }
 
     public void unregisterReceiver(View view) {
